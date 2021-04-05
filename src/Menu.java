@@ -8,6 +8,7 @@ public class Menu {
 	public Menu(String type, double price) {
 		this.type = type;
 		this.price = price;
+		this.dishes= new ArrayList<Dish>();
 	}
 
 	public String getType() {
