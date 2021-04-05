@@ -12,42 +12,32 @@ public class CashRegister {
 		this.today= new MyDate(day,month,year);
 	}
 	
-	public double payEconomical(double cashGiven) {
-		if(this.cashInRegister>=cashGiven) {
-			this.cashInRegister+=2.5;
+	public double payWithCash(double cashGiven, Menu menu) {
+		if(menu.price<=cashGiven) {
+			this.cashInRegister+=menu.price;
+			if (menu.type.equals("Economical")) {
 			this.economicalSold++;
-			return cashGiven-2.5;
+			}else{ 
+				this.gourmetSold++;
+			}
+			return cashGiven-menu.price;
 		}
 		return cashGiven;	
 	}
 	
-	public double payGourmet(double cashGiven) {
-		if(this.cashInRegister>=cashGiven) {
-			this.cashInRegister+=4.0;
-			this.gourmetSold++;
-			return cashGiven-4.0;
-		}
-		return cashGiven;	
-	}
-	
-	public boolean payEconomical(LyraCard card) {
-		if(card.pay(2.5)) {
-			this.cashInRegister+=2.5;
-			this.economicalSold++;
+
+	public boolean payWithCard(LyraCard card, Menu menu) {
+		if(card.pay(menu.price)) {
+			if (menu.type.equals("Economical")) {
+				this.economicalSold++;
+				}else{ 
+					this.gourmetSold++;
+				}
 			return true;
 		}
 		return false;
 	}
 	
-	public boolean payGourmet(LyraCard card) {
-		if(card.pay(4)) {
-			this.cashInRegister+=4.0;
-			this.gourmetSold++;
-			return true;
-		}else {
-		return false;
-		}
-	}
 	
 	public void loadMoneyToCard(LyraCard card, double sum) {
 		if (card.getExpirationDate().dateComparison(today)) {
