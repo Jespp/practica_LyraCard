@@ -26,7 +26,6 @@ public class CashRegister {
 	
 	public boolean payEconomical(LyraCard card) {
 		if((card.getExpirationDate().dateComparison(today)) && (card.pay(2.5))) {
-			this.cashInRegister+=2.5;
 			this.economicalSold++;
 			return true;
 		}
@@ -35,7 +34,6 @@ public class CashRegister {
 	
 	public boolean payGourmet(LyraCard card) {
 		if((card.getExpirationDate().dateComparison(today)) && (card.pay(4.0))){
-			this.cashInRegister+=4.0;
 			this.gourmetSold++;
 			return true;
 		}else {
