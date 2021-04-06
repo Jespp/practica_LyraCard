@@ -26,12 +26,12 @@ public class TestLyraCard {
 		
 		System.out.println("\nOUTPUT3\n");
 		
-		CashRegister unicafeExactum2 = new CashRegister(1,5,2030);
+		CashRegister unicafeExactum2 = new CashRegister(1,5,2022);
 		double theChange2 = unicafeExactum2.payEconomical(10);
 		System.out.println("the change was " + theChange2 );
 		
 		
-		LyraCard cardOfJim = new LyraCard(7,1,1,2020);
+		LyraCard cardOfJim = new LyraCard(7,1,1,2030);
 		
 		boolean succeeded2 = unicafeExactum2.payGourmet(cardOfJim);
 		System.out.println("payment success: " + succeeded2);
@@ -49,7 +49,7 @@ public class TestLyraCard {
 		
 		CashRegister unicafeExactum3 = new CashRegister(5,2,2022);
 		System.out.println( unicafeExactum3 );
-		LyraCard cardOfJim2 = new LyraCard(2,5,2,2022);
+		LyraCard cardOfJim2 = new LyraCard(2,6,2,2022);
 		System.out.println("the card balance " + cardOfJim2.balance() + " euros");
 		boolean succeeded3 = unicafeExactum3.payGourmet(cardOfJim2);
 		System.out.println("payment success: " + succeeded3);

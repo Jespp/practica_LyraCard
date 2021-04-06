@@ -13,25 +13,19 @@ public class CashRegister {
 	}
 	
 	public double payEconomical(double cashGiven) {
-		if(this.cashInRegister>=cashGiven) {
 			this.cashInRegister+=2.5;
 			this.economicalSold++;
 			return cashGiven-2.5;
-		}
-		return cashGiven;	
 	}
 	
 	public double payGourmet(double cashGiven) {
-		if(this.cashInRegister>=cashGiven) {
 			this.cashInRegister+=4.0;
 			this.gourmetSold++;
 			return cashGiven-4.0;
-		}
-		return cashGiven;	
 	}
 	
 	public boolean payEconomical(LyraCard card) {
-		if(card.pay(2.5)) {
+		if((card.getExpirationDate().dateComparison(today)) && (card.pay(2.5))) {
 			this.cashInRegister+=2.5;
 			this.economicalSold++;
 			return true;
@@ -40,7 +34,7 @@ public class CashRegister {
 	}
 	
 	public boolean payGourmet(LyraCard card) {
-		if(card.pay(4)) {
+		if((card.getExpirationDate().dateComparison(today)) && (card.pay(4.0))){
 			this.cashInRegister+=4.0;
 			this.gourmetSold++;
 			return true;
