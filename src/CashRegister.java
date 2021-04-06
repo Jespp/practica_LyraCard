@@ -27,7 +27,7 @@ public class CashRegister {
 	
 
 	public boolean payWithCard(LyraCard card, Menu menu) {
-		if(card.pay(menu.price)) {
+		if((card.getExpirationDate().dateComparison(today)) && (card.pay(menu.price))) {
 			if (menu.type.equals("Economical")) {
 				this.economicalSold++;
 				}else{ 
